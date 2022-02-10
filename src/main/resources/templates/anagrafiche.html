@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title=#{header.anagrafiche})"> </head>
+<body background="images/auto.jpeg">
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div>
+	<ul>
+	<li>
+    	<h4 th:text="#{header.anagrafiche}">Lista dei Clienti</h4>
+		
+			<li th:each="anagrafica : ${anagrafiche}">
+				<a href="anagrafica.html" 
+				   th:href="@{'/anagrafica' + '/' + ${anagrafica.id}}" 
+				   th:text="${anagrafica.nome}">Mario rossi</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

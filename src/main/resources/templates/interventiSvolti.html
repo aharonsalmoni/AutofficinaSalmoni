@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title=#{header.interventi})"> </head>
+<body background="images/auto.jpeg">
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<div>
+	<ul>
+	<li>
+    	<h4 th:text="#{header.interventiSvolti}">Lista degli interventi effettuabili</h4>
+		
+			<li th:each="interventoSvolto : ${interventiSvolti}">
+				<a href="interventoSvolto.html" 
+				   th:href="@{'/interventoSvolto' + '/' + ${interventoSvolto.id}}" 
+				   th:text="${interventoSvolto}">Cambio Olio</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

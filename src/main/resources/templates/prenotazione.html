@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.prenotazione})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    <div>
+     <ul>
+    <li>
+    	<h4 th:text="#{header.prenotazione}">...</h4>
+    	<div th:if="${prenotazione}" th:object="${prenotazione}">
+		<h6 th:text="'Data di prenotazione: ' + ${prenotazione.getDataPrenotazione().getDayOfMonth() + ' ' + prenotazione.getDataPrenotazione().getMonth() + ' ' + prenotazione.getDataPrenotazione().getYear() + ' ' + prenotazione.getDataPrenotazione().getHour() + ': ' + prenotazione.getDataPrenotazione().getMinute()}"></h6>
+   		</div>
+   		</li>
+			</ul>
+    	<div th:unless="${prenotazione}">Questa prenotazione non esiste</div>
+    </div>
+</body>
+</html>

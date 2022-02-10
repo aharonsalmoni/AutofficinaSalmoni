@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.vettura})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    <div>
+    	<h4 th:text="#{header.vettura}">...</h4>
+    	<ul>
+    	<li>
+    	<div th:if="${vettura}" th:object="${vettura}">
+			<span th:text="*{targa}">targa</span>
+			<span th:text="*{marca}">marca </span>
+			<span th:text="*{modello}">modello </span>
+			<span th:text="*{cilindrata}">cilindrata </span>
+   		</div>
+   			</li>
+		</ul>
+    	<div th:unless="${vettura}">Questa vettura non esiste</div>
+    </div>
+</body>
+</html>

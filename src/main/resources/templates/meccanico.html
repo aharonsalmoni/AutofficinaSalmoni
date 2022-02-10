@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.meccanico})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    <div>
+    <ul>
+    <li>
+    	<h4 th:text="#{header.meccanico}">...</h4>
+    	<div th:if="${meccanico}" th:object="${meccanico}">
+			<span th:text="*{nome}">nome</span>
+			<span th:text="*{cognome}">cognome </span>
+			</div>
+			</li>
+			</ul>
+   		</div>
+    	<div th:unless="${meccanico}">Questo meccanico non esiste</div>
+</body>
+</html>

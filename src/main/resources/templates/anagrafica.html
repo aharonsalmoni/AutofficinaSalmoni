@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.anagrafica})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    <div>
+    <ul>
+    <li>
+    	<h4 th:text="#{header.anagrafica}">...</h4>
+    	<div th:if="${anagrafica}" th:object="${anagrafica}">
+			<span th:text="*{nome}">nome</span>
+			<span th:text="*{cognome}">cognome </span>
+			<span th:text="*{cellulare}">cellulare </span>
+			<span th:text="*{indirizzo}">indirizzo </span>
+   		</div>
+   		</li>
+			</ul>
+    	<div th:unless="${anagrafica}">Questo cliente non esiste</div>
+    </div>
+</body>
+</html>

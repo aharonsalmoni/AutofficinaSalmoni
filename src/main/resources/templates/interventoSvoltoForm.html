@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/base.html :: headerfiles(title='Autenticazione')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<section>
+		<div id="corpo">
+			<h1>Inserisci Dati Intervento</h1>
+			<form th:action="@{/admin/interventoSvolto}" method="POST" th:object="${interventoSvolto}">
+				<div>
+				<div style="text-align: center">
+        Data di prenotazione per l'intervento
+        <input type="datetime-local" id="prenotazione" name="prenotazione" th:field="${interventoSvolto.dataPrenotazione}" placeholder="Data prenotazione" required>
+      </div>
+      <div style="text-align: center">
+        Data programmata per l'intervento
+        <input type="date" id="interventoSvolto" name="interventoSvolto" th:field="${interventoSvolto.dataEffettuato}" placeholder="Data Intervento">
+      </div>
+				<div>
+			<h4 class="heading"><span>
+			<label>Meccanico: </label> <select id="meccanico" th:field="*{meccanico}" required>
+			<option th:each="meccanico : ${meccanico}"
+						th:value="${meccanico.id}" th:text="${meccanico.nome}"></option>
+			</select>
+			</span></h4></div>
+				<div>
+			<h4 class="heading"><span>
+			<label>Intervento eseguito: </label> <select id="intervento" th:field="*{intervento}" required>
+			<option th:each="intervento : ${intervento}"
+						th:value="${intervento.id}" th:text="${intervento.nome}"></option>
+			</select>
+			</span></h4></div>
+					<div>
+			<h4 class="heading"><span>
+			<label>Vettura: </label> <select id="auto" th:field="*{auto}" required>
+			<option th:each="aut : ${vettura}"
+						th:value="${aut.id}" th:text="${aut.targa}"></option>
+			</select>
+			</span></h4></div>
+					<div>
+						<span><button type="submit">Salva</button></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/base.html :: headerfiles(title='Autenticazione')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<section>
+		<div id="corpo">
+			<h1>Inserisci Dati Cliente</h1>
+			<form th:action="@{/admin/anagrafica}" method="POST" th:object="${anagrafica}">
+				<div>
+					<div>
+						<span>Nome:</span> <span><input name="nome"
+							type="text" required /></span>
+					</div>
+					<div>
+						<span>Cognome:</span> <span><input name="cognome"
+							type="text" required /></span>
+					</div>
+					<div>
+						<span>Indirizzo:</span> <span><input name="indirizzo"
+							type="text" required /></span>
+					</div>
+					<div>
+						<span>Cellulare:</span> <span><input name="cellulare"
+							type="text" required /></span>
+					</div>
+					<div>
+						<span><button type="submit">Salva</button></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

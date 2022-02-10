@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.interventoSvolto})"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    <div>
+    <ul>
+    <li>
+    	<h4 th:text="#{header.interventoSvolto}">...</h4>
+    	<div th:if="${interventoSvolto}" th:object="${interventoSvolto}">
+    	<h6 th:text="'Data di prenotazione: ' + ${intervento.getDataPrenotazione().getDayOfMonth() + ' ' + intervento.getDataPrenotazione().getMonth() + ' ' + intervento.getDataPrenotazione().getYear() + ' ' + intervento.getDataPrenotazione().getHour() + ': ' + intervento.getDataPrenotazione().getMinute()}"></h6>
+        <h6 th:if="${intervento.getDataIntervento()!=null}" th:text="'Data Intervento: ' + ${intervento.getDataIntervento().getDayOfMonth() + ' ' + intervento.getDataIntervento().getMonth() + ' ' + intervento.getDataIntervento().getYear()}"></h6>
+		</div>
+   		</li>
+			</ul>
+			
+    	<div th:unless="${interventoSvolto}">Questo intervento non esiste</div>
+    </div>
+</body>
+</html>

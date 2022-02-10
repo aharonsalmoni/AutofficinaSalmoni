@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/base.html :: headerfiles(title='Autenticazione')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<section>
+	<div id = "corpo">
+		<h1>Inserisci nuova Prenotazione</h1>
+	<form th:action="@{/admin/prenotazione}" method="POST" th:object="${prenotazione}">
+		<div>
+		<div style="text-align: center">
+        Data di prenotazione per l'intervento
+        <input type="datetime-local" id="prenotazione" name="prenotazione" th:field="${prenotazione.dataPrenotazione}" placeholder="Data prenotazione" required>
+      </div>	
+				<div>
+			<h4 class="heading"><span>
+			<label>Intervento: </label> <select id="intervento" th:field="*{intervento}" required>
+			<option th:each="intervento : ${intervento}"
+						th:value="${intervento.id}" th:text="${intervento.nome}"></option>
+			</select>
+			</span></h4></div>
+			<div>
+			<h4 class="heading"><span>
+			<label>Vettura: </label> <select id="vettura" th:field="*{vettura}" required>
+			<option th:each="vett : ${vetture}"
+						th:value="${vett.id}" th:text="${vett.targa}"></option>
+			</select>
+			</span></h4></div>
+			<div>
+				<span><button type="submit">Invio</button></span>
+			</div>
+			</div>
+	</form>
+	</div>
+	</section>
+</body>
+</html>

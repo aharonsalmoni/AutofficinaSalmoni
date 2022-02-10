@@ -1,0 +1,105 @@
+a.header {
+	
+	text-decoration: none;
+	color: rgb(255, 0, 0);
+}
+
+
+a.navigazione {
+	 background: #ff0000;
+    border-radius: 5px;
+    padding: 5px 10px;
+	text-decoration: none;
+	color: #ffffff;
+	
+}
+
+a.navigazione:hover {
+	color: rgb(0, 0, 0);
+}
+
+a {
+	text-decoration: none;
+	color: rgb(255, 0, 0);
+}
+
+a:hover {
+	color: blue;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+
+
+
+#autofficina {
+  color: rgb(255, 0, 0);
+}
+
+#LogineRegistrazione {
+  display: flex;
+  justify-content: space-between;
+  border: 2px;
+}
+
+#LoginRegistrazione {
+  margin: 15px;
+  border-radius: 200px;
+  width: 80px;
+  text-align: center;
+  text-decoration: white;
+  border: 2px solid white;
+}
+
+#LoginRegistrazione {
+  margin: 15px;
+  border-radius: 200px;
+  width: 80px;
+  text-align: center;
+  border: 2px solid white;
+}
+ul {
+	border-radius: 10px;
+    border: 5px solid #ffffff;
+  list-style-type: circle;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(255, 0, 0);
+  text-decoration: white;
+  
+}
+.default{
+	 list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(255, 0, 0);
+  text-decoration: white;
+}
+
+.default li{
+	float: left;
+}
+
+li a {
+
+list-style-type: circle;
+  display: inline;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: red;
+}
+

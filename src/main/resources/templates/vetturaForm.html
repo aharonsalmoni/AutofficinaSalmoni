@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/base.html :: headerfiles(title='Autenticazione')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<section>
+		<div id="corpo">
+			<h1>Inserisci Dati Vettura</h1>
+			<form th:action="@{/admin/vettura}" method="POST" th:object="${vettura}">
+				<div>
+					<div>
+						<span>Targa:</span> <span><input name="targa"
+							type="text" required /></span>
+					</div>
+					<div>
+						<span>Marca:</span> <span><input name="marca"
+							type="text" required /></span>
+					</div>
+					<div>
+						<span>Modello:</span> <span><input name="modello"
+							type="text" required /></span>
+					</div>
+					<div>
+						<span>Cilindrata:</span> <span><input name="cilindrata"
+							type="text" required /></span>
+					</div>
+					<div>
+			<h4 class="heading"><span>
+			<label>Proprietario: </label> <select id="anagrafica" th:field="*{proprietari}" required>
+			<option th:each="anagrafica : ${anagrafiche}"
+						th:value="${anagrafica.id}" th:text="${anagrafica.nome + ' ' + anagrafica.cognome}"></option>
+			</select>
+			</span></h4></div>
+					<div>
+						<span><button type="submit">Salva</button></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

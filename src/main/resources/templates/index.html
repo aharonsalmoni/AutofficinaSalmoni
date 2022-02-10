@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:fragment="headerfiles(title)">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link th:href="@{/css/Base.css}" rel="stylesheet">
+<link th:href="@{'/css/'+${title}+'.css'}" rel="stylesheet">
+<title th:text="${title}"></title>
+</head>
+<body>
+	<header th:fragment="intestazione">
+		<div id="Autofficina">
+			<strong id="autofficina"><a class="header" th:href="@{'/'}">Autofficina Salmoni
+			</a></strong>
+		</div>
+		<div id="LogineRegistrazione">
+			<div sec:authorize="isAnonymous()" id="LoginRegistrazione">
+				<em><a class="header" th:href="@{'/login'}">Login</a></em>
+			</div>
+			<div sec:authorize="isAnonymous()" id="LoginRegistrazione">
+				<em><a class="header" th:href="@{'/register'}">Registrati</a></em>
+			</div>
+			<div sec:authorize="isAuthenticated()" id="LoginRegistrazione">
+				<em><a class="header" th:href="@{'/logout'}">Logout</a></em>
+			</div>
+		</div>
+	</header>
